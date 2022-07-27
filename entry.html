@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judges Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://www.alphalake.ai"><img src="images/logo.png" alt="Logo" /></a>
+      <img src="images/icon.png" alt="Icon" />
+    </div>
+    <img src="images/HEADER-IMAGE.png" alt="header-image">
+    <div class="section-one">
+        <div class="section-one-text">Entry submission from [Firstname] [Lastname]</div>
+        <select name="cars" id="cars">
+            <option value="date">By Date</option>
+            <option value="time">By Time</option>
+            <option value="length">By Length</option>
+        </select>
+    </div>
+    <div class="section-two">
+        <div class="cardss" id="cardss">
+            <div class="card">
+                <div class="card-data">
+                    <div class="card-description">
+                        <div class="card-titles">First name</div>
+                        <div class="card-type">Firstname</div>
+                        <div class="card-titles">Last name</div>
+                        <div class="card-type">Lastname</div>
+                        <div class="card-titles">Email</div>
+                        <div class="card-type">Email</div>
+                        <div class="card-titles">Employer</div>
+                        <div class="card-type">Employer</div>
+                        <div class="card-titles">Job Title</div>
+                        <div class="card-type">Job Title</div>
+                        <div class="card-titles">RPA Idea</div>
+                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-titles">Problem</div>
+                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-titles">Quantify</div>
+                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-titles">Category</div>
+                        <div class="card-type">Category</div>
+                        <div class="card-titles">Department Name</div>
+                        <div class="card-type">Department Name</div>
+                        <div class="card-titles">Who benefits from this automation?</div>
+                        <div class="card-type">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nobis ducimus quas. Consectetur labore voluptatum delectus. Iure, perspiciatis placeat. Iusto itaque labore a perspiciatis magni perferendis natus quis obcaecati libero?</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scoring">
+                <div class="scoring-head">Scoring Criteria :</div>
+                <div class="scoring-criteria">
+                    <div>Is this really an Issue ?</div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>Not at all</div>
+                        <div>Definitely</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>How urgently should this issue be addressed?</div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>Never</div>
+                        <div>Never</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>Does this automation address the problem?</div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>No</div>
+                        <div>Yes</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>Time saved per person per week? </div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>Minimal</div>
+                        <div>>7 hours</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>What is the complexity of the process to be 
+                        automated? 
+                        i.e. ease of deliverability?</div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>Unimaginably Complex</div>
+                        <div>Very Easy</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>Repeatability across this sector? </div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>Very Low</div>
+                        <div>Very High</div>
+                    </div>
+                </div>
+                <div class="scoring-criteria">
+                    <div>Are more than 2 systems likely to be involved?</div>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <div class="slider-footer">
+                        <div>1-2 systems</div>
+                        <div>3-4 systems</div>
+                        <div>>5 systems</div>
+                    </div>
+                </div>
+                <button>Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+                $.post('http://localhost:3000/getindividualdata',   //url
+       function(data, status, jqXHR) {// success callback
+                console.log(data.length);
+                var i=0;
+                var stop=data.length;
+                for (i=0;i<stop;i++)
+                {
+                    document.getElementById("cards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+                }
+        });
+    </script>
+</body>
+</html>

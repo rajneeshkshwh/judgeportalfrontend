@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judges Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="https://www.alphalake.ai"><img src="images/logo.png" alt="Logo" /></a>
+      <img src="images/icon.png" alt="Icon" />
+    </div>
+    
+    <div class="container">
+      <div class="round-1"></div>
+      <div class="round-2"></div>
+      <div class="round-box">
+        <span class="r1"></span>
+        <span class="r2"></span>
+        <span class="r3"></span>
+        <span class="r4"></span>
+        <span class="r5"></span>
+        <span class="r6"></span>
+        <span class="r7"></span>
+      </div>
+      <div class="round-box-right">
+        <span class="r1"></span>
+        <span class="r2"></span>
+        <span class="r3"></span>
+        <span class="r4"></span>
+        <span class="r5"></span>
+        <span class="r6"></span>
+        <span class="r7"></span>
+        <span class="r8"></span>
+      </div>
+      <h1>Enter your Judge code:</h1>
+      <div class="userInput">
+        <input
+          type="text"
+          id="ist"
+          maxlength="1"
+          onkeyup="clickEvent(this,'sec')"
+        />
+        <input
+          type="text"
+          id="sec"
+          maxlength="1"
+          onkeyup="clickEvent(this,'third')"
+        />
+        <input
+          type="text"
+          id="third"
+          maxlength="1"
+          onkeyup="clickEvent(this,'fourth')"
+        />
+        <input
+          type="text"
+          id="fourth"
+          maxlength="1"
+          onkeyup="clickEvent(this,'fifth')"
+        />
+        <input type="text" id="fifth" maxlength="1" />
+      </div>
+      <button onclick="code()">Continue</button>
+    </div>
+
+    <script>
+      function clickEvent(first, last) {
+        if (first.value.length) {
+          document.getElementById(last).focus();
+        }
+      }
+
+      function code() {
+        console.log("true");
+        var input1 = document.getElementById("ist").value;
+        var code = input1.concat(document.getElementById("sec").value,document.getElementById("third").value,document.getElementById("fourth").value,document.getElementById("fifth").value)
+        console.log(code);
+        $.post('https://evening-springs-68490.herokuapp.com/checkcode',   // url
+       { code: code}, // data to be submit
+       function(data, status, jqXHR) {// success callback
+                if(data=="OK"){
+                  window.location.href="home.html";
+                }
+                else{
+                  alert(data);
+                }
+        })
+
+
+      // let response = await fetch('/article/fetch/post/user', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json;charset=utf-8'
+      //   },
+      //   body: JSON.stringify(user)
+      // });
+
+      // let result = await response.json();
+      // alert(result.message);
+
+
+
+      }
+
+
+
+    </script>
+  </body>
+</html>
