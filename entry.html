@@ -21,7 +21,7 @@
     </div>
     <img src="images/HEADER-IMAGE.png" alt="header-image">
     <div class="section-one">
-        <div class="section-one-text">Entry submission from [Firstname] [Lastname]</div>
+        <div class="section-one-text name" id="name">Entry submission from </div>
         <select name="cars" id="cars">
             <option value="date">By Date</option>
             <option value="time">By Time</option>
@@ -34,27 +34,27 @@
                 <div class="card-data">
                     <div class="card-description">
                         <div class="card-titles">First name</div>
-                        <div class="card-type">Firstname</div>
+                        <div class="card-type" id="firstname"></div>
                         <div class="card-titles">Last name</div>
-                        <div class="card-type">Lastname</div>
+                        <div class="card-type" id="lastname"></div>
                         <div class="card-titles">Email</div>
-                        <div class="card-type">Email</div>
+                        <div class="card-type" id="email"></div>
                         <div class="card-titles">Employer</div>
-                        <div class="card-type">Employer</div>
+                        <div class="card-type" id="employer"></div>
                         <div class="card-titles">Job Title</div>
-                        <div class="card-type">Job Title</div>
+                        <div class="card-type" id="job"></div>
                         <div class="card-titles">RPA Idea</div>
-                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-type" id="idea"></div>
                         <div class="card-titles">Problem</div>
-                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-type" id="problem"></div>
                         <div class="card-titles">Quantify</div>
-                        <div class="card-type">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dolorum dolor consectetur fugiat. Eos, aspernatur. Ducimus harum, voluptas hic explicabo nulla, deleniti reiciendis nihil, dolorum natus perferendis error quia illum?</div>
+                        <div class="card-type" id="quantify"></div>
                         <div class="card-titles">Category</div>
-                        <div class="card-type">Category</div>
+                        <div class="card-type" id="category"></div>
                         <div class="card-titles">Department Name</div>
-                        <div class="card-type">Department Name</div>
+                        <div class="card-type" id="department"></div>
                         <div class="card-titles">Who benefits from this automation?</div>
-                        <div class="card-type">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nobis ducimus quas. Consectetur labore voluptatum delectus. Iure, perspiciatis placeat. Iusto itaque labore a perspiciatis magni perferendis natus quis obcaecati libero?</div>
+                        <div class="card-type" id="benefit"></div>
                     </div>
                 </div>
             </div>
@@ -125,16 +125,25 @@
     </div>
 
     <script>
-                $.post('http://localhost:3000/getindividualdata',   //url
+        console.log(window.localStorage.getItem('id'));
+        var id = window.localStorage.getItem('id');
+        $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
        function(data, status, jqXHR) {// success callback
-                console.log(data.length);
-                var i=0;
-                var stop=data.length;
-                for (i=0;i<stop;i++)
-                {
-                    document.getElementById("cards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
-                }
+                console.log(data[id]);
+                // name = document.getElementById("name");
+                document.getElementById("name").innerHTML += `<b>${data[id].firstname}</b><b> </b><b>${data[id].lastname}</b>`;
+                document.getElementById("firstname").innerHTML += `<div>${data[id].firstname}</div>`
+                document.getElementById("lastname").innerHTML += `<div>${data[id].lastname}</div>`
+                document.getElementById("email").innerHTML += `<div>${data[id].email}</div>`
+                document.getElementById("employer").innerHTML += `<div>${data[id].employer}</div>`
+                document.getElementById("job").innerHTML += `<div>${data[id].job}</div>`
+                document.getElementById("idea").innerHTML += `<div>${data[id].idea}</div>`
+                document.getElementById("quantify").innerHTML += `<div>${data[id].quantify}</div>`
+                document.getElementById("category").innerHTML += `<div>${data[id].category}</div>`
+                document.getElementById("department").innerHTML += `<div>${data[id].department}</div>`
+                document.getElementById("benefit").innerHTML += `<div>${data[id].benefit}</div>`
         });
+
     </script>
 </body>
 </html>
