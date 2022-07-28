@@ -354,11 +354,12 @@ button {
 
 .card-type {
     font-weight: 200;
-    font-size: small;
+    font-size: 0.9rem;
+    line-height: 30px;
 }
 .card-name {
     font-weight: 200;
-    font-size: small;
+    font-size: 0.9rem;
 }
 
 
