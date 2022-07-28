@@ -90,10 +90,11 @@
         console.log(code);
         $.post('https://evening-springs-68490.herokuapp.com/checkcode',   // url
        { code: code}, // data to be submit
-       function(data, status, jqXHR) {// success callback
+       function(data, status, jqXHR) {
+        console.log(data);// success callback
                 if(data.status=="OK"){
                   localStorage.setItem("judge", data.judge);
-                  window.location.href="home.html";
+                  // window.location.href="home.html";
                 }
                 else{
                   alert(data);
