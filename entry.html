@@ -119,7 +119,7 @@
                         <div>>5 systems</div>
                     </div>
                 </div>
-                <button onclick="savedata()">Save</button>
+                <button id="saved" onclick="savedata()">Save</button>
             </div>
         </div>
     </div>
@@ -159,7 +159,10 @@
             { id: window.localStorage.getItem('id'), judge: window.localStorage.getItem('judge'), score: score}, // data to be submit
             function(data, status, jqXHR) {// success callback
                         if(data=="updated"){
-                        window.location.href="home.html";
+                            document.getElementById("saved").innerHTML = `Saved`;
+                            document.getElementById("saved").removeAttribute("onclick");
+                            setTimeout(function() {window.location.href="home.html";}, 3000);
+                        
                         }
                         else{
                         alert(data);
