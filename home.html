@@ -56,24 +56,30 @@
         $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
        function(data, status, jqXHR) {// success callback
         var responses;
-        $.get('https://evening-springs-68490.herokuapp.com/getresponsedata', function(datas, status, jqXHR){
+        var judge = window.localStorage.getItem('judge');
+        $.get('https://evening-springs-68490.herokuapp.com/judges/'+judge, function(datas, status, jqXHR){
             responses = datas;
-            var judge = window.localStorage.getItem('judge');
-            console.log(responses[0].judge.toString());
-        });
-                console.log(data.length);
-                var i=0;
-                var stop=data.length;
-                for (i=0;i<stop;i++)
-                {
+            console.log(responses);
+            console.log(data.length);
+            var i=0;
+            var stop=data.length;
+            for (i=0;i<stop;i++)
+            {
+                console.log(responses[i]);
+                if(responses[i] != 0){
+                    document.getElementById("cards").innerHTML += `<div class='card-completed' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div><div class="completed-state"><div>Completed</div><div>Score ${responses[i]} </div></div></div></div></div>`
+                }
+                else{
                     document.getElementById("cards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
                 }
+            }
+        });
         });
 
 
         function saveid(e){
             console.log(e);
-            localStorage.setItem("id", e);
+            localStorage.setItem("id", (parseInt(e)+1));
             window.location.href="entry.html";
         }
 
