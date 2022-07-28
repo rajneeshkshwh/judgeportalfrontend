@@ -62,7 +62,7 @@
                 <div class="scoring-head">Scoring Criteria :</div>
                 <div class="scoring-criteria">
                     <div>Is this really an Issue ?</div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange1">
                     <div class="slider-footer">
                         <div>Not at all</div>
                         <div>Definitely</div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="scoring-criteria">
                     <div>How urgently should this issue be addressed?</div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange2">
                     <div class="slider-footer">
                         <div>Never</div>
                         <div>Never</div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="scoring-criteria">
                     <div>Does this automation address the problem?</div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange3">
                     <div class="slider-footer">
                         <div>No</div>
                         <div>Yes</div>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="scoring-criteria">
                     <div>Time saved per person per week? </div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange4">
                     <div class="slider-footer">
                         <div>Minimal</div>
                         <div>>7 hours</div>
@@ -96,7 +96,7 @@
                     <div>What is the complexity of the process to be 
                         automated? 
                         i.e. ease of deliverability?</div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange5">
                     <div class="slider-footer">
                         <div>Unimaginably Complex</div>
                         <div>Very Easy</div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="scoring-criteria">
                     <div>Repeatability across this sector? </div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange6">
                     <div class="slider-footer">
                         <div>Very Low</div>
                         <div>Very High</div>
@@ -112,14 +112,14 @@
                 </div>
                 <div class="scoring-criteria">
                     <div>Are more than 2 systems likely to be involved?</div>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange7">
                     <div class="slider-footer">
                         <div>1-2 systems</div>
                         <div>3-4 systems</div>
                         <div>>5 systems</div>
                     </div>
                 </div>
-                <button>Save</button>
+                <button onclick="savedata()">Save</button>
             </div>
         </div>
     </div>
@@ -143,6 +143,31 @@
                 document.getElementById("department").innerHTML += `<div>${data[id].department}</div>`
                 document.getElementById("benefit").innerHTML += `<div>${data[id].benefit}</div>`
         });
+
+        function savedata(){
+            var range1 = document.getElementById("myRange1").value;
+            var range2 = document.getElementById("myRange2").value;
+            var range3 = document.getElementById("myRange3").value;
+            var range4 = document.getElementById("myRange4").value;
+            var range5 = document.getElementById("myRange5").value;
+            var range6 = document.getElementById("myRange6").value;
+            var range7 = document.getElementById("myRange7").value;
+            var score = range1 + range2 + range3 + range4 + range5 + range6 + range7;
+
+
+            $.post('https://evening-springs-68490.herokuapp.com/updatescore',   // url
+            { id: window.localStorage.getItem('id'), judge: window.localStorage.getItem('judge'), score: score}, // data to be submit
+            function(data, status, jqXHR) {// success callback
+                        if(data=="updated"){
+                        window.location.href="home.html";
+                        }
+                        else{
+                        alert(data);
+                        }
+                })
+
+
+        }
 
     </script>
 </body>

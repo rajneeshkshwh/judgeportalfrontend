@@ -92,6 +92,7 @@
        { code: code}, // data to be submit
        function(data, status, jqXHR) {// success callback
                 if(data=="OK"){
+                  localStorage.setItem("judge", code);
                   window.location.href="home.html";
                 }
                 else{
