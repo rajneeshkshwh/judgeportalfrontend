@@ -36,12 +36,16 @@
     <div class="section-two">
         <div class="section-two-text">Organisation Category</div>
         <div class="cards">
-            <div class="card">
+            <div class="card-completed">
                 <div class="card-data">
                     <div class="card-description">
                         <div class="card-title">[Entry Title]</div>
                         <div class="card-type">Individual</div>
                         <div class="card-name">[Entry Name]</div>
+                        <div class="completed-state">
+                            <div>Completed</div>
+                            <div>Score </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +55,12 @@
     <script>
         $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
        function(data, status, jqXHR) {// success callback
+        var responses;
+        $.get('https://evening-springs-68490.herokuapp.com/getresponsedata', function(datas, status, jqXHR){
+            responses = datas;
+            var judge = window.localStorage.getItem('judge');
+            console.log(responses[0].judge.toString());
+        });
                 console.log(data.length);
                 var i=0;
                 var stop=data.length;

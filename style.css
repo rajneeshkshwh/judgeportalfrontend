@@ -325,6 +325,29 @@ button {
     padding: 2em;
 }
 
+.card-description{
+    width: 100%;
+}
+
+
+.card-completed {
+    width: 280px;
+    margin: 0 2%;
+    padding: 2%;
+    border: 1px solid #60A372;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+}
+
+.completed-state{
+    color: #60A372;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .card-titles{
     margin-top: 10px;
 }

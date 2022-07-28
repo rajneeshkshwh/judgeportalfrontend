@@ -152,7 +152,7 @@
             var range5 = document.getElementById("myRange5").value;
             var range6 = document.getElementById("myRange6").value;
             var range7 = document.getElementById("myRange7").value;
-            var score = range1 + range2 + range3 + range4 + range5 + range6 + range7;
+            var score = parseInt(range1) + parseInt(range2) + parseInt(range3) + parseInt(range4) + parseInt(range5) + parseInt(range6) + parseInt(range7);
 
 
             $.post('https://evening-springs-68490.herokuapp.com/updatescore',   // url
