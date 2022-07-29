@@ -314,6 +314,12 @@ button {
     grid-gap: 20px;
 }
 
+.leaderboardcardss{
+    color: white;
+    padding: 2%;
+    display: grid;
+}
+
 .card {
     width: 280px;
     margin: 0 2%;
@@ -534,6 +540,9 @@ a {
     .card-description-mobile{
         display: block;
         width: 100%;
+    }
+    .leaderboard-view-entry{
+        margin-right: 20px;
     }
   }
 
