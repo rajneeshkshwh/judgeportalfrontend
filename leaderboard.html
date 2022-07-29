@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judges Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://www.alphalake.ai"><img src="images/logo.png" alt="Logo" /></a>
+      <img src="images/icon.png" alt="Icon" />
+    </div>
+    <img src="images/HEADER-IMAGE.png" alt="header-image">
+    <div class="section-one">
+        <div class="section-one-text">Leaderboard</div>
+        <select name="cars" id="cars">
+            <option value="date">Individual</option>
+        </select>
+    </div>
+    <div class="section-two">
+        <div class="leaderboard-header">
+            <div class="leaderboard-header-flex"></div>
+            <div style="flex: 0.8;">Entrant</div>
+            <div>Score</div>
+        </div>
+        <div class="leaderboard-cards" id="leaderboardcards">
+            <!-- <div class="leaderboard-card">
+                <div>1</div>
+                <div style="flex: 0.8;">Rajneesh Kushwaha</div>
+                <div class="leaderboard-card-flex"></div>
+                <div  class="leaderboard-view-entry">View Entry</div>
+                <div class="leaderboard-card-score">0</div>
+            </div>
+            <div class="leaderboard-card">
+                <div>1</div>
+                <div style="flex: 0.8;">Rajneesh</div>
+                <div class="leaderboard-card-flex"></div>
+                <div  class="leaderboard-view-entry">View Entry</div>
+                <div class="leaderboard-card-score">0</div>
+            </div>
+            <div class="leaderboard-card">
+                <div>1</div>
+                <div style="flex: 0.8;">Ankit Kushwaha</div>
+                <div class="leaderboard-card-flex"></div>
+                <div  class="leaderboard-view-entry">View Entry</div>
+                <div class="leaderboard-card-score">0</div>
+            </div> -->
+        </div>
+    </div>
+    </div>
+
+    <script>
+        $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
+       function(data, status, jqXHR) {// success callback
+            var i=0;
+            var stop=data.length;
+            for (i=0;i<stop;i++)
+            {
+                document.getElementById("leaderboardcards").innerHTML += `<div class="leaderboard-card"><div>${i+1}</div><div style="flex: 0.8;margin-left:5%;">${data[i].firstname + " " + data[i].lastname}</div><div class="leaderboard-card-flex"></div><div class="leaderboard-view-entry">View Entry</div><div class="leaderboard-card-score">0</div></div>`
+                // document.getElementById("leaderboardcards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+            }
+        });
+
+
+        function saveid(e){
+            console.log(e);
+            localStorage.setItem("id", (parseInt(e)+1));
+            window.location.href="entry.html";
+        }
+
+    </script>
+</body>
+</html>
