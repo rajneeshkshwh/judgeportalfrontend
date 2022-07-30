@@ -60,13 +60,13 @@
     </div>
 
     <script>
-        $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
+        $.get('https://evening-springs-68490.herokuapp.com/getleaderboard',   //url
        function(data, status, jqXHR) {// success callback
             var i=0;
             var stop=data.length;
             for (i=0;i<stop;i++)
             {
-                document.getElementById("leaderboardcards").innerHTML += `<div class="leaderboard-card"><div>${i+1}</div><div style="flex: 0.8;margin-left:5%;">${data[i].firstname + " " + data[i].lastname}</div><div class="leaderboard-card-flex"></div><div class="leaderboard-view-entry" onclick="saveid(this.id)" id="${i+1}">View Entry</div><div class="leaderboard-card-score">0</div></div>`
+                document.getElementById("leaderboardcards").innerHTML += `<div class="leaderboard-card"><div>${i+1}</div><div style="flex: 0.8;margin-left:5%;">${data[i].firstname + " " + data[i].lastname}</div><div class="leaderboard-card-flex"></div><div class="leaderboard-view-entry" onclick="saveid(this.id)" id="${data[i].id}">View Entry</div><div class="leaderboard-card-score">0</div></div>`
                 // document.getElementById("leaderboardcards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
             }
         });
