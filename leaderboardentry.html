@@ -66,19 +66,19 @@
         var id = window.localStorage.getItem('id');
         $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
        function(data, status, jqXHR) {// success callback
-                console.log(data[id]);
+                console.log(data[id-1]);
                 // name = document.getElementById("name");
-                document.getElementById("name").innerHTML += `<b>${data[id].firstname}</b><b> </b><b>${data[id].lastname}</b>`;
-                document.getElementById("firstname").innerHTML += `<div>${data[id].firstname}</div>`
-                document.getElementById("lastname").innerHTML += `<div>${data[id].lastname}</div>`
-                document.getElementById("email").innerHTML += `<div>${data[id].email}</div>`
-                document.getElementById("employer").innerHTML += `<div>${data[id].employer}</div>`
-                document.getElementById("job").innerHTML += `<div>${data[id].job}</div>`
-                document.getElementById("idea").innerHTML += `<div>${data[id].idea}</div>`
-                document.getElementById("quantify").innerHTML += `<div>${data[id].quantify}</div>`
-                document.getElementById("category").innerHTML += `<div>${data[id].category}</div>`
-                document.getElementById("department").innerHTML += `<div>${data[id].department}</div>`
-                document.getElementById("benefit").innerHTML += `<div>${data[id].benefit}</div>`
+                document.getElementById("name").innerHTML += `<b>${data[id-1].firstname}</b><b> </b><b>${data[id-1].lastname}</b>`;
+                document.getElementById("firstname").innerHTML += `<div>${data[id-1].firstname}</div>`
+                document.getElementById("lastname").innerHTML += `<div>${data[id-1].lastname}</div>`
+                document.getElementById("email").innerHTML += `<div>${data[id-1].email}</div>`
+                document.getElementById("employer").innerHTML += `<div>${data[id-1].employer}</div>`
+                document.getElementById("job").innerHTML += `<div>${data[id-1].job}</div>`
+                document.getElementById("idea").innerHTML += `<div>${data[id-1].idea}</div>`
+                document.getElementById("quantify").innerHTML += `<div>${data[id-1].quantify}</div>`
+                document.getElementById("category").innerHTML += `<div>${data[id-1].category}</div>`
+                document.getElementById("department").innerHTML += `<div>${data[id-1].department}</div>`
+                document.getElementById("benefit").innerHTML += `<div>${data[id-1].benefit}</div>`
         });
 
     </script>
