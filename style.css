@@ -491,6 +491,7 @@ a {
 
   .leaderboard-view-entry{
     flex:0.2;
+    cursor: pointer;
   }
 
   .mobile-image{
@@ -543,6 +544,7 @@ a {
     }
     .leaderboard-view-entry{
         margin-right: 20px;
+        cursor: pointer;
     }
   }
 
