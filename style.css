@@ -524,6 +524,7 @@ a {
     .cards{
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
     .cardss{
         display: flex;
