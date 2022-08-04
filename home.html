@@ -75,7 +75,7 @@
                     document.getElementById("cards").innerHTML += `<div class='card-completed' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div><div class="completed-state"><div>Completed</div><div>Score ${responses[i]} </div></div></div></div></div>`
                 }
                 else{
-                    document.getElementById("cards").innerHTML += `<div onclick="saveid(this.id)" class='card' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+                    document.getElementById("cards").innerHTML += `<div class='card' id="${i}"><div class='card-data'><div class='card-description'  onclick="saveid(this.id)" id="${i}"><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
                 }
             }
         });
@@ -84,7 +84,7 @@
 
         function saveid(e){
             console.log(e);
-            localStorage.setItem("id", (parseInt(e)+1));
+            localStorage.setItem("id", (parseInt(e)));
             window.location.href="entry.html";
         }
 
