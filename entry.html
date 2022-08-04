@@ -125,6 +125,12 @@
     </div>
 
     <script>
+
+        if(!window.localStorage.getItem('judge')){
+            window.location.href="index.html";
+        }
+
+
         console.log(window.localStorage.getItem('id'));
         var id = window.localStorage.getItem('id');
         $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url

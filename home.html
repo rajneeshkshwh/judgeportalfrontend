@@ -58,6 +58,12 @@
     </div>
 
     <script>
+
+
+        if(!window.localStorage.getItem('judge')){
+            window.location.href="index.html";
+        }
+
         $.get('https://evening-springs-68490.herokuapp.com/getindividualdata',   //url
        function(data, status, jqXHR) {// success callback
         var responses;
