@@ -320,6 +320,10 @@ button {
     display: grid;
 }
 
+.logo{
+    width: 20%;
+}
+
 .card {
     width: 280px;
     margin: 0 2%;
@@ -562,6 +566,9 @@ a {
     .leaderboard-view-entry{
         margin-right: 20px;
         cursor: pointer;
+    }
+    .logo{
+        width: 45%;
     }
   }
 
