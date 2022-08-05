@@ -386,12 +386,12 @@ button {
 }
 
 .card-type {
-    font-weight: 200;
+    font-weight: 400;
     font-size: 0.9rem;
     line-height: 30px;
 }
 .card-name {
-    font-weight: 200;
+    font-weight: 400;
     font-size: 0.9rem;
 }
 
@@ -415,7 +415,7 @@ a {
 }
 
 .scoring-criteria{
-    font-weight: 200;
+    font-weight: 400;
     margin: 40px 0;
 }
 
