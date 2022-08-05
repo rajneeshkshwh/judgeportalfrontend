@@ -306,6 +306,14 @@ button {
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 20px;
 }
+.cardz {
+    color: white;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
 .cardss {
     color: white;
     padding: 2%;
@@ -542,6 +550,11 @@ a {
         display: none;
     }
     .cards{
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    .cardz{
         display: flex;
         flex-direction: column;
         cursor: pointer;

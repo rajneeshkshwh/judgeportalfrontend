@@ -55,6 +55,32 @@
             </div> -->
         </div>
     </div>
+    <div class="section-two">
+        <div class="section-two-text">Organization Category</div>
+        <div class="cards no_highlights" id="cardz">
+            <!-- <div class='card-completed' >
+                <div class='card-data'>
+                    <div class='card-description'>
+                        <div class='card-title'>Title</div>
+                        <div class='card-type'>Category</div>
+                        <div class='card-name'>Rajneesh Kushwaha</div>
+                        <button>View</button>
+                        <div class="completed-state">
+                            <div>Completed</div>
+                            <div>Score </div>
+                        </div>
+                    </div>
+                    <div class='card-description-mobile' style="display:flex;flex-direction:row;">
+                        <div >
+                            <div class='card-name'>Rajneesh Kushwaha</div>
+                            <div class='card-type'>Category</div>
+                        </div>
+                        <button>View</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
     </div>
 
     <script>
@@ -77,11 +103,21 @@
             for (i=0;i<stop;i++)
             {
                 console.log(responses[i]);
-                if(responses[i] != 0){
-                    document.getElementById("cards").innerHTML += `<div class='card-completed' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div><div class="completed-state"><div>Completed</div><div>Score ${responses[i]} </div></div></div></div></div>`
+                if(i==11){
+                    if(responses[i] != 0){
+                        document.getElementById("cardz").innerHTML += `<div class='card-completed' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div><div class="completed-state"><div>Completed</div><div>Score ${responses[i]} </div></div></div></div></div>`
+                    }
+                    else{
+                        document.getElementById("cardz").innerHTML += `<div class='card' id="${i}"><div class='card-data'><div class='card-description'  onclick="saveid(this.id)" id="${i}"><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+                    }
                 }
                 else{
-                    document.getElementById("cards").innerHTML += `<div class='card' id="${i}"><div class='card-data'><div class='card-description'  onclick="saveid(this.id)" id="${i}"><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+                    if(responses[i] != 0){
+                        document.getElementById("cards").innerHTML += `<div class='card-completed' id="${i}"><div class='card-data'><div class='card-description'><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div><div class="completed-state"><div>Completed</div><div>Score ${responses[i]} </div></div></div></div></div>`
+                    }
+                    else{
+                        document.getElementById("cards").innerHTML += `<div class='card' id="${i}"><div class='card-data'><div class='card-description'  onclick="saveid(this.id)" id="${i}"><div class='card-title'>${data[i].idea.substring(0,100)+" . . ."}</div><div class='card-type'>${data[i].category}</div><div class='card-name'>${data[i].firstname + " " + data[i].lastname}</div></div></div></div>`
+                    }
                 }
             }
         });
