@@ -162,7 +162,7 @@
 
 
             $.post('https://evening-springs-68490.herokuapp.com/updatescore',   // url
-            { id: window.localStorage.getItem('id'), judge: window.localStorage.getItem('judge'), score: score}, // data to be submit
+            { id: parseInt(window.localStorage.getItem('id'))+1, judge: window.localStorage.getItem('judge'), score: score}, // data to be submit
             function(data, status, jqXHR) {// success callback
                         if(data=="updated"){
                             document.getElementById("saved").innerHTML = `Saved`;
